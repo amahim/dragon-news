@@ -8,3 +8,8 @@
 .font-poppins{
   font-family: "Poppins", sans-serif;
 }
+
+a.active {
+  border-color: rgba(39, 39, 39, 0.575);
+  background-color: rgba(136, 138, 136, 0.568);
+}

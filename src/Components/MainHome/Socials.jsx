@@ -19,7 +19,7 @@ const Socials = () => {
 
             {/* fb,twitter,insta */}
             <div>
-                <h1 className="text-xl font-medium  my-2">Find Us On</h1>
+                <h1 className="text-xl font-medium mt-10">Find Us On</h1>
                 <div className="join join-vertical rounded-md w-full text-start">
                     <button className="btn join-item text-xl btn-outline"><FaFacebook/>  Facebook</button>
                     <button className="btn join-item text-xl btn-outline "><FaSquareXTwitter/>  X</button>

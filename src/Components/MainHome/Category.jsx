@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const Category = () => {
 
     const [categories,setCategories] = useState([])
 
     useEffect(()=>{
-        fetch('categories.json')
+        fetch("https://openapi.programming-hero.com/api/news/categories")
+        // fetch("../../../public/categories.json")
         .then(res => res.json())
-        .then(data => setCategories(data))
+        .then(data => setCategories(data.data.news_category))
+        // .then(data => setCategories(data))
     },[])
 
 
@@ -20,10 +23,11 @@ const Category = () => {
             </div>
 
             {/* btns */}
-            <div className="flex flex-col gap-2 ">
+            <div className="flex  flex-col-reverse gap-2 ">
                 {
-                    categories.map(category=>(
-                        <button className="btn rounded-md">{category.name}</button>
+                    categories.map((category)=>(
+                        <NavLink to={`/category/${category.category_id}`}
+                        className="btn rounded-md">{category.category_name}</NavLink>
                     ))
                 }
             </div>
