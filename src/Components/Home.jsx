@@ -1,6 +1,9 @@
 import moment from "moment";
 import Marquee from "react-fast-marquee";
 import Navbar from "./Navbar";
+import Category from "./MainHome/Category";
+import News from "./MainHome/News";
+import Socials from "./MainHome/Socials";
 
 
 const Home = () => {
@@ -12,7 +15,7 @@ const Home = () => {
                 <p className="text-[#535353ab]">Journalism Without Fear or Favour</p>
                 <p>{moment().format('dddd, MMMM Do YYYY')}</p>
 
-                {/* Marquee Headline */}
+                {/**  Marquee Headline **/}
 
                 <div className="bg-[#53535349] p-2 flex gap-2 items-center">
                     <button className="btn btn-error text-white rounded-none text-base font-medium">Latest</button>
@@ -20,9 +23,18 @@ const Home = () => {
                         <p><span className="text-error text-lg font-medium">Breaking News : </span>   Real Madrid won record breaking 15th UCL  |  Vinicius Junior is heading towards the Ballon D'or |</p>
                     </Marquee>
                 </div>
+
                 {/* Navbar */}
+
                 <div className="w-full mt-3">
                     <Navbar/>
+                </div>
+
+                {/* Home Main */}
+                <div className="w-full grid grid-cols-12 gap-2 my-5">
+                    <div className=" col-span-3 "><Category/></div>
+                    <div className=" col-span-6 "><News/></div>
+                    <div className=" col-span-3 "><Socials/></div>
                 </div>
             </div>
             
