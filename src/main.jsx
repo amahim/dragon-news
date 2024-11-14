@@ -9,6 +9,12 @@ import {
 } from "react-router-dom";
 import Home from './Components/Home';
 import News from './Components/MainHome/News';
+import AuthLayout from './Components/AuthLayout/AuthLayout';
+import Login from './Components/AuthLayout/Login';
+import Register from './Components/AuthLayout/Register';
+import AuthProvider from './Provider/AuthProvider';
+import About from './Components/About';
+import Career from './Components/Career';
 
 const router = createBrowserRouter([
   {
@@ -31,11 +37,36 @@ const router = createBrowserRouter([
       },
     ]
   },
+  {
+    path: "auth",
+    element: <AuthLayout />,
+    children: [
+      {
+        path: "login", // updated to "login" instead of "auth/login"
+        element: <Login />
+      },
+      {
+        path: "register", // updated to "register" instead of "auth/register"
+        element: <Register />
+      },
+    ]
+  },
+  {
+    path:"about",
+    element: <About/>
+  },
+  {
+    path:"career",
+    element: <Career/>
+  },
+  
    
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )

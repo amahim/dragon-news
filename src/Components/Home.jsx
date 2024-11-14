@@ -2,7 +2,6 @@ import moment from "moment";
 import Marquee from "react-fast-marquee";
 import Navbar from "./Navbar";
 import Category from "./MainHome/Category";
-import News from "./MainHome/News";
 import Socials from "./MainHome/Socials";
 import { Outlet } from "react-router-dom";
 
