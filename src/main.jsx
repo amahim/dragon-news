@@ -15,6 +15,8 @@ import Register from './Components/AuthLayout/Register';
 import AuthProvider from './Provider/AuthProvider';
 import About from './Components/About';
 import Career from './Components/Career';
+import NewsDetails from './Components/MainHome/NewsDetails';
+import PrivateRoute from './Routes/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -42,11 +44,11 @@ const router = createBrowserRouter([
     element: <AuthLayout />,
     children: [
       {
-        path: "login", // updated to "login" instead of "auth/login"
+        path: "login", 
         element: <Login />
       },
       {
-        path: "register", // updated to "register" instead of "auth/register"
+        path: "register", 
         element: <Register />
       },
     ]
@@ -59,6 +61,15 @@ const router = createBrowserRouter([
     path:"career",
     element: <Career/>
   },
+  {
+    path:"/news/:id",
+    element:  <PrivateRoute>
+                <NewsDetails/>
+              </PrivateRoute>,
+    loader: ({params})=> 
+      fetch(`https://openapi.programming-hero.com/api/news/${params.id}`)
+  },
+
   
    
 ]);

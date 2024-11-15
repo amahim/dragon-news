@@ -1,6 +1,7 @@
  import React from 'react';
 import { AiOutlineEye } from 'react-icons/ai';
 import { FaStar } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const NewsShow = (props = {}) => {
   const {news} = props || {};
@@ -34,9 +35,9 @@ const NewsShow = (props = {}) => {
 
       {/* Details */}
       <div className="p-4">
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-600 text-start">
           {details ? details.slice(0, 150) : "No details available"}... 
-          <span className="text-blue-600 cursor-pointer">Read More</span>
+          <Link to={`/news/${news._id}`} className="text-blue-600 cursor-pointer">Read More</Link>
         </p>
       </div>
 

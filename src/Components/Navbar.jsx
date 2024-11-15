@@ -14,7 +14,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className="flex justify-between items-center">
+        <div className="flex md:flex-row md:gap-0 gap-3 flex-col md:justify-between items-center">
             <div className="flex gap-2 items-center ">
                 {
                     user && user?.email ? <p className="text-error  text-xl font-medium"><FaUser/></p>
