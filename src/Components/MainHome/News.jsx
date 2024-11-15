@@ -4,7 +4,7 @@ import NewsShow from "./NewsShow";
 const News = () => {
     
     const {data} = useLoaderData(); 
-    console.log(data)
+    // console.log(data)
 
     return (
         <div>

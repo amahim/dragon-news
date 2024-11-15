@@ -5,6 +5,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 
 
+
 const Navbar = () => {
     const {user,logout} = useContext(AuthContext)
 
@@ -17,16 +18,15 @@ const Navbar = () => {
         <div className="flex md:flex-row md:gap-0 gap-3 flex-col md:justify-between items-center">
             <div className="flex gap-2 items-center ">
                 {
-                    user && user?.email ? <p className="text-error  text-xl font-medium"><FaUser/></p>
-                    :
-                     <p className=" text-xl font-medium"><FaUser/></p>
-                }
-                {
-                    user && user?.email ? 
-                    <p className="border-b-2 text-error border-error text-xl font-medium">{user && user.email }</p>
-                    :
-                    <p className="border-b-2  border-black text-xl font-medium">Guest</p>
-
+                    user && user?.email ? (
+                        <div className="flex items-center gap-2 ">
+                            <img src={user?.photoURL} className="w-6 h-6 rounded-full md:w-10 md:h-10" />
+                            <p className="text-error font-medium text-xl">{user?.displayName}</p>
+                        </div>
+                    ) : (
+                        <p className=" text-xl font-medium"><FaUser/></p>
+                    )
+                    
                 }
             </div>
             <div className="space-x-4 text-lg text-[#1f1e1ed7]">

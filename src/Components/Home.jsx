@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import Category from "./MainHome/Category";
 import Socials from "./MainHome/Socials";
 import { Outlet } from "react-router-dom";
+import logo from '../assets/logo.png'
 
 
 const Home = () => {
@@ -11,7 +12,7 @@ const Home = () => {
         <div className="w-4/5 mx-auto py-5">
             {/* Heading Div */}
             <div className="text-center flex flex-col items-center gap-4">
-                <img src="../../public/logo.png" alt="" />
+                <img src={logo} alt="" />
                 <p className="text-[#535353ab]">Journalism Without Fear or Favour</p>
                 <p>{moment().format('dddd, MMMM Do YYYY')}</p>
 

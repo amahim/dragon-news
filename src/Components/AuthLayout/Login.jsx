@@ -1,10 +1,13 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
 
     const {userSignIn,setUser} = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
+    const [error,setError] = useState({})
 
     const handleLoginSubmit = (e) =>{
         e.preventDefault();
@@ -17,9 +20,10 @@ const Login = () => {
         .then((result) => {
             const user = result.user;
             setUser(user)
+            navigate(location?.state ? location.state : "/")
         })
-        .catch((error) => {
-            alert( error)
+        .catch((err) => {
+            setError({...error,login: err.code})
         });
     }
 
@@ -60,6 +64,13 @@ const Login = () => {
 
                 <div className="form-control mt-6">
                 <button className="btn bg-[#4e4e4e] text-white">Login</button>
+                </div>
+                <div>
+                    {
+                        error.login && (
+                            <p className=" text-sm text-error ">{error.login}</p>
+                        )
+                    }
                 </div>
                 <div>
                     <h1>Don't have an account? <Link to="/auth/register" className="text-blue-600">Register</Link></h1>

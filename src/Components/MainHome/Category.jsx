@@ -23,7 +23,7 @@ const Category = () => {
             </div>
 
             {/* btns */}
-            <div className="flex  flex-col-reverse gap-2 ">
+            <div className="flex  flex-col-reverse gap-2 sticky top-0 z-50">
                 {
                     categories.map((category)=>(
                         <NavLink to={`/category/${category.category_id}`}

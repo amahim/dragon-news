@@ -7,11 +7,11 @@ const NewsDetails = () => {
 
     const data = useLoaderData();
     const news = data.data[0];
-    console.log(news)
+    // console.log(news)
 
     return (
         <div className='w-4/5 mx-auto'>
-            <div>
+            <div className='py-5'>
                 <Navbar/>
             </div>
             <div className=' md:grid md:grid-cols-12 flex flex-col gap-4'>
